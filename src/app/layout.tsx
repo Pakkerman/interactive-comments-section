@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="bg-neutral-light-gray">
+    <html lang="en" className="bg-neutral-very-light-gray">
       <body>{children}</body>
     </html>
   );

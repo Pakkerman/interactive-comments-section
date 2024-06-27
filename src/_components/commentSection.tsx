@@ -1,5 +1,5 @@
 import data from "data/data.json";
-import Card from "~/components/Card";
+import Comment from "~/components/Comment";
 
 export type Comment = {
   id: number;
@@ -13,19 +13,22 @@ export type Comment = {
     };
     username: string;
   };
-  replies: Array<{
-    id: number;
-    content: string;
-    createdAt: string;
-    score: number;
-    user: {
-      image: {
-        png: string;
-        webp: string;
-      };
-      username: string;
+  replies: Array<ReplyComment>;
+};
+
+export type ReplyComment = {
+  id: number;
+  content: string;
+  createdAt: string;
+  score: number;
+  replyingTo: string;
+  user: {
+    image: {
+      png: string;
+      webp: string;
     };
-  }>;
+    username: string;
+  };
 };
 
 export default function CommentSection() {
@@ -35,7 +38,7 @@ export default function CommentSection() {
       <ul className="flex flex-col gap-4">
         {comments.map((item) => (
           <li key={item.id}>
-            <Card comment={item} />
+            <Comment comment={item} />
           </li>
         ))}
       </ul>
