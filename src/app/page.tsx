@@ -1,4 +1,3 @@
-import Link from "next/link";
 import CommentSection from "~/_components/commentSection";
 
 export default function HomePage() {
